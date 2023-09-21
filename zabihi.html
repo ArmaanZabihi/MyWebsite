@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armaan Zabihi - Portfolio</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS file -->
+    <style>
+       body {
+            background-image: url('coding-background.jpg');
+            background-size: cover;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+        /* Container */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        /* Nav Link */
+        .nav {
+            text-align: right;
+        }
+        .nav a {
+            color: #0074e4;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        /* Header */
+        .header {
+            text-align: center;
+            margin-top: 100px;
+        }
+        /* About Me */
+        .about {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+       
+        <!-- social media button syntax -->
+        <section class="social-media">
+            <a href="https://github.com/ArmaanZabihi" target="_blank" class="social-btn">GitHub</a>
+            <a href="https://www.linkedin.com/in/armaan-zabihi-575952250/" target="_blank" class="social-btn">LinkedIn</a>
+        </section>
+
+   <!-- Dark Mode -->
+        <button id="dark-mode" class="dark-mode-btn">Toggle Dark Mode</button>
+
+        <!-- Projects Section -->
+        <section class="projects">
+            <h2>Projects</h2>
+            <div id="project-list"></div>
+        </section>
+    </div>
+
+    <script src="MyPortfolio.js"></script> <!-- Link to your JavaScript file -->
+    <script>
+        // Sample project data
+        const projects = [
+            {
+                name: "GetYourDrinkON",
+                description: "A site a user can search for a drink, ingredients and how to make it are shown",
+                link: "https://github.com/ArmaanZabihi/GetYourDrinkON-",
+            },
+            {
+                name: "Alpha Stocks",
+                description: "A web app to track stock prices.",
+                link: "https://github.com/ArmaanZabihi/Alpha-Stocks",
+            },
+            
+        ];
+
+        // Function to create and display project cards
+        function createProjectCards() {
+            const projectList = document.getElementById("project-list");
+
+            projects.forEach((project) => {
+                const card = document.createElement("div");
+                card.classList.add("project-card");
+
+                const title = document.createElement("h3");
+                title.textContent = project.name;
+
+                const description = document.createElement("p");
+                description.textContent = project.description;
+
+                const link = document.createElement("a");
+                link.href = project.link;
+                link.textContent = "View Project";
+
+                card.appendChild(title);
+                card.appendChild(description);
+                card.appendChild(link);
+
+                projectList.appendChild(card);
+            });
+        }
+
+        createProjectCards();
+    </script>
+</body>
+</html>
